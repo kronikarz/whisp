@@ -1,0 +1,42 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+
+class DecodedMsgField extends StatelessWidget {
+  final List<String> decodedMessageParts;
+  final List<int> brokenMessageIndexes;
+
+  const DecodedMsgField({
+    required this.decodedMessageParts,
+    this.brokenMessageIndexes = const <int>[],
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        children: List<TextSpan>.generate(
+          decodedMessageParts.length,
+          (int index) => TextSpan(
+            text: decodedMessageParts[index],
+            style: TextStyle(
+              color: brokenMessageIndexes.contains(index) ? Colors.transparent : Colors.black87,
+              fontSize: MediaQuery.of(context).size.width * 0.06,
+              fontFamily: 'Kalam',
+              fontWeight: FontWeight.bold,
+              shadows: <Shadow>[
+                Shadow(
+                  blurRadius: Platform.isWindows ? 0.8 : 3.0,
+                  color: Colors.black.withOpacity(0.5),
+                  offset: Offset.zero,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
