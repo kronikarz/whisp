@@ -1,7 +1,7 @@
 name: whisp
 description: "Demo application for mrumru."
 publish_to: 'none'
-version: 0.0.1
+version: 0.0.2
 
 environment:
   sdk: "3.2.6"
@@ -14,7 +14,7 @@ dependencies:
   # Data Over Audio
   mrumru:
     git:
-      url: https://github.com/snggle/mrumru.git
+      url: git@github.com:kronikarz/mrumru.git
       ref: dev
 
   # A Dart package that helps to implement value based equality without needing to explicitly override == and hashCode.
